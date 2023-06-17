@@ -1,3 +1,10 @@
+:root {
+  --color-neutral: #f2f2f2;
+  --color-text: #000;
+  --color-accent: #f9d96a;
+  --font: "Josefin Sans", sans-serif;
+}
+
 *,
 *::before,
 *::after {
@@ -21,6 +28,15 @@ li {
 a,
 a:visited {
   text-decoration: none;
+}
+
+.body {
+  background: var(--color-neutral);
+  color: var(--color-text);
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "nav nav nav" ". content .";
+  grid-template-columns: 2rem auto 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

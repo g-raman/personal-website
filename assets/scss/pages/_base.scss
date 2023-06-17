@@ -1,0 +1,12 @@
+.body {
+  background: var(--color-neutral);
+  color: var(--color-text);
+  height: 100vh;
+
+  display: grid;
+  grid-template-areas: 
+    "nav nav nav"
+    ". content .";
+  grid-template-columns: 2rem auto 2rem;
+}
+
