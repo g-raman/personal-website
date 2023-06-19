@@ -1,6 +1,7 @@
 .body {
   background: var(--color-neutral);
   color: var(--color-text);
+  font-family: var(--font);
   height: 100vh;
 
   display: grid;
@@ -8,5 +9,6 @@
     "nav nav nav"
     ". content .";
   grid-template-columns: 2rem auto 2rem;
+  grid-template-rows: min-content auto;
 }
 
