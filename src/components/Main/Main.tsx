@@ -1,4 +1,5 @@
 import React from "react";
+import Projects from "../Projects/Projects";
 
 export default function Main() {
   return (
@@ -8,6 +9,7 @@ export default function Main() {
       I write software that solves real-world problems
       <br />
       Always open to new opportunities, feel free to reach out!
+      <Projects />
     </main>
   );
 }
