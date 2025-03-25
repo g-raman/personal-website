@@ -22,11 +22,11 @@ const projects: Project[] = [
 export default function Projects() {
   return (
     <div className="mt-4">
-      <h2 className="text-3xl font-semibold">Projects</h2>
+      <h2 className="text-xl font-semibold sm:text-3xl">Projects</h2>
       <ul className="mt-2">
         {projects.map(project => (
           <li key={project.name} className="">
-            <h3 className="text-xl font-medium">{project.name}</h3>
+            <h3 className="text-lg font-medium sm:text-xl">{project.name}</h3>
             <p>{project.description}</p>
 
             <div className="flex gap-4">
