@@ -1,13 +1,21 @@
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="flex items-baseline justify-between">
-      <Link href="/" className="text-4xl font-bold">
+    <nav className="flex items-center justify-between">
+      <Link href="/" className="text-2xl font-bold">
         Raman Gupta
       </Link>
-    </div>
+
+      <ul className="flex gap-4 text-xl font-normal">
+        <li>
+          <Link href="/about">About</Link>
+        </li>
+
+        <li>
+          <Link href="/blog">Blog</Link>
+        </li>
+      </ul>
+    </nav>
   );
 }
