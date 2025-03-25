@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function ProfileCard() {
   return (
     <div className="flex items-center gap-8">
-      <div className="relative h-[160px] w-[160px] rounded-full border-2 border-[#0a66c2] bg-white p-[3px]">
+      <div className="relative h-24 w-24 rounded-full border-2 border-[#0a66c2] bg-white p-[3px] sm:h-32 sm:w-32 md:h-40 md:w-40">
         <Image
-          className="aspect-square rounded-full object-cover"
+          className="h-full w-full rounded-full object-cover"
           src="/headshot.jpeg"
           alt="Picture of Raman Gupta"
           width={150}
