@@ -8,15 +8,6 @@ export default function Header() {
       <Link href="/" className="text-4xl font-bold">
         Raman Gupta
       </Link>
-
-      <div className="flex gap-4">
-        <a href="https://github.com/g-raman" target="_blank">
-          <FontAwesomeIcon icon={faGithub} size="2xl" />
-        </a>
-        <a href="https://linkedin.com/in/gupta-raman" target="_blank">
-          <FontAwesomeIcon icon={faLinkedin} size="2xl" />
-        </a>
-      </div>
     </div>
   );
 }
