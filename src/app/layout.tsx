@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex h-dvh flex-col gap-4 px-96 py-16 antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} flex h-dvh flex-col gap-16 p-4 px-96 py-16 antialiased`}
       >
         <Header />
         {children}
