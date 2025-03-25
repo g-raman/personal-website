@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function ProfileCard() {
   return (
-    <div className="flex items-center gap-8">
-      <div className="relative h-24 w-24 rounded-full border-2 border-[#0a66c2] bg-white p-[3px] sm:h-32 sm:w-32 md:h-40 md:w-40">
+    <div className="flex flex-col items-center gap-8 md:flex-row">
+      <div className="relative h-30 w-30 rounded-full border-2 border-[#0a66c2] bg-white p-[3px]">
         <Image
           className="h-full w-full rounded-full object-cover"
           src="/headshot.jpeg"
@@ -16,8 +16,8 @@ export default function ProfileCard() {
         />
       </div>
 
-      <div className="flex flex-col gap-4">
-        <p className="text-4xl font-bold">
+      <div className="flex flex-col items-center gap-4 md:items-start">
+        <p className="text-center text-4xl font-bold md:text-left">
           <span>Hey, I&apos;m Raman.</span>
           <br />
           <span className="text-gray-500">
