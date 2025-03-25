@@ -34,13 +34,18 @@ export default function Projects() {
                 <a
                   className="cursor-pointer underline hover:text-gray-500"
                   href={project.github}
+                  target="_blank"
                 >
                   Github&nbsp;
                   <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="xs" />
                 </a>
               )}
               {project.demo && (
-                <a className="cursor-pointer underline hover:text-gray-500">
+                <a
+                  className="cursor-pointer underline hover:text-gray-500"
+                  href="https://uenroll.ca"
+                  target="_blank"
+                >
                   Live Demo&nbsp;
                   <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="xs" />
                 </a>
