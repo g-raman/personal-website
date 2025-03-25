@@ -17,7 +17,7 @@ export default function ProfileCard() {
       </div>
 
       <div className="flex flex-col items-center gap-4 md:items-start">
-        <p className="text-center text-4xl font-bold md:text-left">
+        <p className="text-center text-2xl font-bold sm:text-4xl md:text-left">
           <span>Hey, I&apos;m Raman.</span>
           <br />
           <span className="text-gray-500">
