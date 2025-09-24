@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,16 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function ProfileCard() {
   return (
     <div className="flex flex-col items-center gap-8 md:flex-row">
-      <div className="relative h-30 w-30 rounded-full border-2 border-[#0a66c2] bg-white p-[3px]">
-        <Image
-          className="h-full w-full rounded-full object-cover"
-          src="/headshot.jpeg"
-          alt="Picture of Raman Gupta"
-          width={150}
-          height={150}
-        />
-      </div>
-
       <div className="flex flex-col items-center gap-4 md:items-start">
         <p className="text-center text-2xl font-bold sm:text-4xl md:text-left">
           <span>Hey, I&apos;m Raman.</span>
