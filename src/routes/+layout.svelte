@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
+	import Nav from '../lib/components/Nav.svelte';
 
 	let { children } = $props();
 </script>
@@ -10,5 +11,9 @@
 </svelte:head>
 
 <div class="px-96 py-16">
-	{@render children()}
+	<Nav />
+
+	<main>
+		{@render children()}
+	</main>
 </div>
