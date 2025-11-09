@@ -5,11 +5,20 @@
 	import faviconLight from '$lib/assets/favicon-light.svg';
 	import faviconDark from '$lib/assets/favicon-dark.svg';
 
+	import { MetaTags } from 'svelte-meta-tags';
+
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
 	let { children } = $props();
 </script>
+
+<MetaTags
+	title="Personal Website"
+	description="Raman Gupta's personal website"
+	titleTemplate="%s | Raman Gupta"
+	canonical="https://raman.codes/"
+/>
 
 <svelte:head>
 	<link rel="icon" type="image/svg" href={faviconLight} media="(prefers-color-scheme: light)" />
