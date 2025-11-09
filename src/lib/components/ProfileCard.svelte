@@ -15,6 +15,7 @@
 			<a
 				class="flex items-center gap-1 hover:text-current/70"
 				href="https://github.com/g-raman"
+				rel="external"
 				target="_blank"
 			>
 				<FontAwesomeIcon class="!size-5" icon={faGithub} />
@@ -24,6 +25,7 @@
 			<a
 				class="flex items-center gap-1 text-[#0b66c2] hover:text-[#0b66c2]/70"
 				href="https://linkedin.com/in/gupta-raman"
+				rel="external"
 				target="_blank"
 			>
 				<FontAwesomeIcon class="!size-5" icon={faSquareLinkedin} />
