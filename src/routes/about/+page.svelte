@@ -1,1 +1,18 @@
-<h1 class="text-3xl font-bold md:text-5xl">Under construction</h1>
+<article class="text-sm/8 md:text-base/12">
+	<h1 class="mb-2 text-lg font-bold md:text-3xl">About Me</h1>
+
+	<p>I'm Raman, a Software Developer based in Canada.</p>
+
+	<p>In my fourth year at the University Of Ottawa.</p>
+
+	<p>Have over a year of experience as a developer.</p>
+
+	<p>
+		Currently Working on
+		<a class="underline hover:text-current/70" href="https://uenroll.ca" target="_blank">
+			uEnroll
+		</a>.
+	</p>
+
+	<p>Always open for a chat, just reach out on one of my socials.</p>
+</article>
