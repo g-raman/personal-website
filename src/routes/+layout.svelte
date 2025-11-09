@@ -14,12 +14,16 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="flex h-dvh flex-col px-96 py-16">
-	<Nav />
+<div class="bg-dot-grid h-dvh px-84 py-16">
+	<div
+		class="flex h-full flex-col rounded-md border border-slate-500 bg-white bg-cover bg-center p-8"
+	>
+		<Nav />
 
-	<main>
-		{@render children()}
-	</main>
+		<main>
+			{@render children()}
+		</main>
 
-	<Footer />
+		<Footer />
+	</div>
 </div>
