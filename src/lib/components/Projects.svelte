@@ -12,7 +12,7 @@
 	const projects: Project[] = [
 		{
 			name: 'uEnroll',
-			description: '1200+ monthly users. A modern schedule builder for uOttawa students',
+			description: '1200+ monthly users. A modern schedule builder for uOttawa students.',
 			github: 'https://github.com/g-raman/uenroll',
 			demo: 'https://uenroll.ca'
 		}
