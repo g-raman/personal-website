@@ -1,4 +1,4 @@
-<nav class="flex w-full items-baseline justify-between px-96 py-16">
+<nav class="flex w-full items-baseline justify-between">
 	<p class="text-2xl font-semibold">Raman Gupta</p>
 
 	<ul class="flex gap-4 text-xl font-light">
