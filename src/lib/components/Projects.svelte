@@ -19,6 +19,7 @@
 	];
 </script>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
 <section>
 	<h2 class="text-xl font-semibold">Projects</h2>
 	<ul class="mt-2">
@@ -32,6 +33,7 @@
 						<a
 							class="flex cursor-pointer items-center gap-1 underline hover:text-gray-500"
 							href={project.github}
+							rel="external"
 							target="_blank"
 						>
 							Github
@@ -43,6 +45,7 @@
 						<a
 							class="flex cursor-pointer items-center gap-1 underline hover:text-gray-500"
 							href="https://uenroll.ca"
+							rel="external"
 							target="_blank"
 						>
 							Live Demo
