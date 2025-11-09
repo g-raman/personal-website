@@ -7,12 +7,14 @@
 
 	import { MetaTags } from 'svelte-meta-tags';
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
 	let { children } = $props();
 	injectAnalytics();
+	injectSpeedInsights();
 </script>
 
 <MetaTags
