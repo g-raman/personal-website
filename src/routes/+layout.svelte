@@ -6,11 +6,13 @@
 	import faviconDark from '$lib/assets/favicon-dark.svg';
 
 	import { MetaTags } from 'svelte-meta-tags';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
 	let { children } = $props();
+	injectAnalytics();
 </script>
 
 <MetaTags
