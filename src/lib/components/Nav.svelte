@@ -1,5 +1,5 @@
 <nav class="flex w-full items-baseline justify-between pb-16">
-	<p class="text-2xl font-semibold">Raman Gupta</p>
+	<a href="/" class="text-2xl font-semibold">Raman Gupta</a>
 
 	<ul class="flex gap-4 text-xl font-light">
 		<li>
