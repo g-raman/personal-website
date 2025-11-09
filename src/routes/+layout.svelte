@@ -2,7 +2,8 @@
 	import '@fontsource-variable/geist';
 	import '@fontsource-variable/geist-mono';
 	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import faviconLight from '$lib/assets/favicon-light.svg';
+	import faviconDark from '$lib/assets/favicon-dark.svg';
 
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -11,7 +12,8 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" type="image/svg" href={faviconLight} media="(prefers-color-scheme: light)" />
+	<link rel="icon" type="image/svg" href={faviconDark} media="(prefers-color-scheme: dark)" />
 </svelte:head>
 
 <div class="bg-dot-grid h-dvh px-8 py-8 md:px-24 md:py-16 lg:px-48 xl:px-64">
