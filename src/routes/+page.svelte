@@ -3,7 +3,7 @@
 
 	<ul class="flex gap-4 text-xl font-light">
 		<li>
-			<p>About</p>
+			<a href="/about">About</a>
 		</li>
 
 		<li>
