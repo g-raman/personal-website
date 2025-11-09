@@ -12,13 +12,17 @@
 		</p>
 
 		<div class="flex gap-4 text-lg">
-			<a href="https://github.com/g-raman" target="_blank">
-				<FontAwesomeIcon icon={faGithub} />
+			<a class="flex items-center gap-1" href="https://github.com/g-raman" target="_blank">
+				<FontAwesomeIcon class="!size-5" icon={faGithub} />
 				GitHub
 			</a>
 
-			<a class="text-[#0b66c2]" href="https://linkedin.com/in/gupta-raman" target="_blank">
-				<FontAwesomeIcon icon={faSquareLinkedin} />
+			<a
+				class="flex items-center gap-1 text-[#0b66c2]"
+				href="https://linkedin.com/in/gupta-raman"
+				target="_blank"
+			>
+				<FontAwesomeIcon class="!size-5" icon={faSquareLinkedin} />
 				LinkedIn
 			</a>
 		</div>
