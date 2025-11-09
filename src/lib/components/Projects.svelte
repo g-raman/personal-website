@@ -21,7 +21,7 @@
 
 <!-- eslint-disable svelte/no-navigation-without-resolve -->
 <section>
-	<h2 class="text-xl font-semibold">Projects</h2>
+	<h2 class="text-3xl font-semibold">Projects</h2>
 	<ul class="mt-2">
 		{#each projects as project (project.name)}
 			<li>
