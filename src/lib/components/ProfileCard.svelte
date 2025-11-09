@@ -12,13 +12,17 @@
 		</p>
 
 		<div class="flex gap-4 text-lg">
-			<a class="flex items-center gap-1" href="https://github.com/g-raman" target="_blank">
+			<a
+				class="flex items-center gap-1 hover:text-current/70"
+				href="https://github.com/g-raman"
+				target="_blank"
+			>
 				<FontAwesomeIcon class="!size-5" icon={faGithub} />
 				GitHub
 			</a>
 
 			<a
-				class="flex items-center gap-1 text-[#0b66c2]"
+				class="flex items-center gap-1 text-[#0b66c2] hover:text-[#0b66c2]/70"
 				href="https://linkedin.com/in/gupta-raman"
 				target="_blank"
 			>
