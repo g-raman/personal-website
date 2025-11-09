@@ -38,6 +38,7 @@
 		"vite": "^7.1.10"
 	},
 	"dependencies": {
-		"@fortawesome/free-brands-svg-icons": "^7.1.0"
+		"@fortawesome/free-brands-svg-icons": "^7.1.0",
+		"@fortawesome/svelte-fontawesome": "^0.2.4"
 	}
 }
