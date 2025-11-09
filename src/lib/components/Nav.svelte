@@ -7,7 +7,7 @@
 		</li>
 
 		<li>
-			<p>Blog</p>
+			<a href="/blog">Blog</a>
 		</li>
 	</ul>
 </nav>
