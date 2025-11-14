@@ -1,8 +1,8 @@
-import type { Post } from '../../../types';
+import type { PostModule } from '../../../types';
 import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async () => {
-	const postModules = import.meta.glob<Post>('/src/posts/*.md', { eager: true });
+	const postModules = import.meta.glob<PostModule>('/src/posts/*.md', { eager: true });
 
 	const posts = Object.keys(postModules).map((path) => {
 		const slug = path.slice(path.lastIndexOf('/') + 1).replace('.md', '');

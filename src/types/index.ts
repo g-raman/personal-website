@@ -1,8 +1,13 @@
 import type { Component } from 'svelte';
 
-export type Post = {
+export type PostModule = {
 	metadata: Metadata;
 	default: Component;
+};
+
+export type Post = {
+	metadata: Metadata;
+	slug: string;
 };
 
 export type Metadata = {
