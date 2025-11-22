@@ -31,7 +31,7 @@
 				<div class="flex gap-4">
 					{#if project.github}
 						<a
-							class="flex cursor-pointer items-center gap-1 underline hover:text-gray-500"
+							class="flex cursor-pointer items-center gap-1 underline hover:text-stone-500"
 							href={project.github}
 							rel="external"
 							target="_blank"
@@ -43,7 +43,7 @@
 
 					{#if project.demo}
 						<a
-							class="flex cursor-pointer items-center gap-1 underline hover:text-gray-500"
+							class="flex cursor-pointer items-center gap-1 underline hover:text-stone-500"
 							href="https://uenroll.ca"
 							rel="external"
 							target="_blank"

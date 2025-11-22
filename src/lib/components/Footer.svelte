@@ -6,7 +6,7 @@
 </script>
 
 <footer class="mt-auto flex items-center justify-between">
-	<p>&copy;&nbsp;{year} Raman Gupta</p>
+	<p class="text-stone-700">&copy;&nbsp;{year} Raman Gupta</p>
 
 	<ul class="flex gap-4 text-xl">
 		<li>

@@ -8,7 +8,7 @@
 		<p class="text-left text-xl font-bold text-nowrap min-[400px]:text-2xl sm:text-4xl">
 			<span>Hey, I&apos;m Raman.</span>
 			<br />
-			<span class="text-gray-500">I&apos;m a Software Developer.</span>
+			<span class="text-stone-500">I&apos;m a Software Developer.</span>
 		</p>
 
 		<div class="flex gap-4 text-sm sm:text-lg">

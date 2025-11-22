@@ -2,7 +2,7 @@
 	import { resolve } from '$app/paths';
 </script>
 
-<nav class="flex w-full items-baseline justify-between pb-16">
+<nav class="flex w-full items-baseline justify-between pb-8 md:pb-12 lg:pb-16">
 	<a href={resolve('/')} class="text-lg font-semibold hover:text-current/70 md:text-2xl"
 		>Raman Gupta</a
 	>
