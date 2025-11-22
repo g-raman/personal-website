@@ -10,6 +10,7 @@
 </svelte:head>
 
 <section>
+	<h1 class="text-4xl font-bold">Under construction</h1>
 	<ul class="flex flex-col gap-4">
 		{#each data.posts as post (post.slug)}
 			<li class="flex items-baseline gap-4">
