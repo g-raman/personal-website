@@ -1,8 +1,31 @@
 <script lang="ts">
 	import { formatDateFriendly } from '$lib';
+	import CopyCodeButton from '$lib/components/CopyCodeButton.svelte';
+	import { mount, onMount } from 'svelte';
 
 	let { data } = $props();
 	const Content = data.content;
+
+	onMount(() => {
+		const preTags: HTMLCollectionOf<HTMLPreElement> = document.getElementsByTagName('pre');
+
+		for (const preTag of preTags) {
+			const classList = Array.from(preTag.classList);
+
+			const isCodeBlock = classList.includes('shiki');
+
+			if (!isCodeBlock) return;
+			if (!preTag.parentNode) return;
+
+			const newCodeBlockWrapper = document.createElement('div');
+			newCodeBlockWrapper.className = 'relative';
+
+			mount(CopyCodeButton, { target: newCodeBlockWrapper });
+
+			preTag.parentNode.replaceChild(newCodeBlockWrapper, preTag);
+			newCodeBlockWrapper.appendChild(preTag);
+		}
+	});
 </script>
 
 <svelte:head>
