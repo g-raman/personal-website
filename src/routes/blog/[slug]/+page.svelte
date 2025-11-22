@@ -17,7 +17,7 @@
 		<p class="text-gray-500">{formatDate(data.meta.publishedAt)}</p>
 	</hgroup>
 
-	<div class="prose prose-base">
+	<div class="prose prose-sm md:prose-base">
 		<hr />
 		<Content />
 	</div>
