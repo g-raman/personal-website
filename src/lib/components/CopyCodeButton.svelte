@@ -23,7 +23,7 @@
 	title={copied ? 'Copied!' : 'Copy code'}
 >
 	{#if copied}
-		<FontAwesomeIcon icon={faCheck} class="!size-3" />
+		<FontAwesomeIcon icon={faCheck} class="!size-3 text-green-300" />
 	{:else}
 		<FontAwesomeIcon icon={faClone} class="!size-3" />
 	{/if}
