@@ -29,12 +29,8 @@
 	<link rel="icon" type="image/svg" href={faviconDark} media="(prefers-color-scheme: dark)" />
 </svelte:head>
 
-<div
-	class="bg-dot-grid flex min-h-dvh flex-col bg-[#fffcf0] px-8 py-8 md:px-24 md:py-16 lg:px-48 xl:px-84"
->
-	<div
-		class="flex flex-1 flex-col rounded-md border border-stone-500 bg-[#fffcf0] bg-cover bg-center p-8"
-	>
+<div class="bg-dot-grid flex min-h-dvh flex-col bg-[#fffcf0] px-8 md:px-24 lg:px-48 xl:px-84">
+	<div class="flex flex-1 flex-col border-x border-stone-500 bg-[#fffcf0] bg-cover bg-center p-8">
 		<Nav />
 
 		<main>
