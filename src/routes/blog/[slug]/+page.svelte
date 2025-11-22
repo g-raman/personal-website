@@ -12,13 +12,14 @@
 </svelte:head>
 
 <article>
-	<hgroup class="mb-4">
+	<hgroup>
 		<h1 class="mb-2 text-4xl font-bold">{data.meta.title}</h1>
 		<p class="text-stone-500">{formatDateFriendly(data.meta.publishedAt)}</p>
 	</hgroup>
 
+	<hr class="my-4 border-stone-400/40" />
+
 	<div class="prose prose-sm md:prose-base">
-		<hr />
 		<Content />
 	</div>
 </article>
