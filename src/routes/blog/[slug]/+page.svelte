@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { formatDate } from '$lib';
+	import { formatDateFriendly } from '$lib';
 
 	let { data } = $props();
 	const Content = data.content;
@@ -14,7 +14,7 @@
 <article>
 	<hgroup class="mb-4">
 		<h1 class="mb-2 text-4xl font-bold">{data.meta.title}</h1>
-		<p class="text-gray-500">{formatDate(data.meta.publishedAt)}</p>
+		<p class="text-gray-500">{formatDateFriendly(data.meta.publishedAt)}</p>
 	</hgroup>
 
 	<div class="prose prose-sm md:prose-base">

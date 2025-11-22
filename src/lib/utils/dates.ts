@@ -1,4 +1,4 @@
-export function formatDate(date: string) {
+export function formatDateFriendly(date: string) {
 	return new Date(date).toLocaleDateString('en-CA', {
 		year: 'numeric',
 		month: 'long',
