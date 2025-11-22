@@ -7,3 +7,12 @@ export function formatDateFriendly(date: string) {
 		timeZone: 'UTC'
 	});
 }
+
+export function formatDateNumeric(date: string) {
+	return new Date(date).toLocaleDateString('en-CA', {
+		year: 'numeric',
+		month: 'numeric',
+		day: 'numeric',
+		timeZone: 'UTC'
+	});
+}
