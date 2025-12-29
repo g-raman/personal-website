@@ -8,6 +8,8 @@
 		"binding": "ASSETS",
 		"directory": ".svelte-kit/cloudflare"
 	},
+  "workers_dev": true,
+  "preview_urls": true,
   "routes": [
     {
       "custom_domain": true,
