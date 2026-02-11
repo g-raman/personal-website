@@ -27,8 +27,8 @@ const experiences: Experience[] = [
 			'Enabled secure admin access to Jira via Atlassian MCP with fine-grained role-based access control (RBAC) by building a custom authentication layer using JWT in Python',
 			'Boosted Sonar security hotspot coverage from 22% to 90% and mitigated supply chain attacks in Docker builds through dependency pinning/verification, enforcing non-root runtime, and eliminating 20+ CVEs',
 			'Achieved 92% unit-test coverage, reduced UI regressions, and improved the reliability of LLM-driven code generation by building an automated component test pipeline via GitHub Actions using Storybook & Vitest',
-			'Drove a 45% reduction in request volume by replacing 30+ useEffects with cache-aware React Query hooks',
-		],
+			'Drove a 45% reduction in request volume by replacing 30+ useEffects with cache-aware React Query hooks'
+		]
 	},
 	{
 		role: 'Software Developer Intern',
@@ -42,8 +42,8 @@ const experiences: Experience[] = [
 			'Reduced CPU usage by 19% for computation-heavy endpoints by implementing a KV-store-based distributed rate limiter with GCP Cloud Memorystore (Memcached), Java, and the Guava library',
 			'Delivered 10k+ reminders per month by adding an email pipeline for automated notifications via Twilio SendGrid',
 			'Reduced appointment lookup from minutes to seconds for admins, eliminated direct database access & manual workflows by building an appointment management dashboard, serving 1200+ daily bookings',
-			'Prevented automated and spam appointment bookings by building a customizable spam shield with per-user and time-window limits, ensuring safe system behaviour at launch',
-		],
+			'Prevented automated and spam appointment bookings by building a customizable spam shield with per-user and time-window limits, ensuring safe system behaviour at launch'
+		]
 	},
 	{
 		role: 'Software Developer Intern',
@@ -58,66 +58,67 @@ const experiences: Experience[] = [
 			'Achieved a latency reduction from 1,100ms to 300ms by building aggregated SQL views that consolidated multiple queries into a single request across 20+ Java (Apache Sling) endpoints',
 			'Reduced flaky test failures by 40% and achieved 93% coverage by stabilizing Cypress and Jasmine test suites',
 			'Cut request latency by 11% and eliminated deeply nested merge queries by building an ETL pipeline that unified current and legacy data models, consolidating 30+ tables/columns',
-			'Enabled 3 interns to ship on day 1 and cut onboarding time from 15h to 30min by developing a TypeScript CLI',
-		],
-	},
+			'Enabled 3 interns to ship on day 1 and cut onboarding time from 15h to 30min by developing a TypeScript CLI'
+		]
+	}
 ];
 ---
 
 <section class="pt-8">
 	<h2 class="font-medium tracking-tight text-title">Experience</h2>
 	<div class="pt-1.5">
-		{experiences.map((exp) => (
-			<div class="flex flex-col items-start pt-2">
-				<div class="group relative -mx-3 w-full rounded-lg px-3 py-3 transition-all duration-300 ease-in-out md:hover:bg-hover">
-					<button
-						type="button"
-						class="exp-toggle flex w-full cursor-pointer items-start justify-between text-left"
-						aria-label="Toggle details"
-					>
-						<div class="flex items-start gap-3">
-							<div class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded border border-border bg-white">
-								<img src={exp.logo.src} alt={exp.company} class="h-7 w-7 object-contain" />
+		{
+			experiences.map((exp) => (
+				<div class="flex flex-col items-start pt-2">
+					<div class="group relative -mx-3 w-full rounded-lg px-3 py-3 transition-all duration-300 ease-in-out md:hover:bg-hover">
+						<button
+							type="button"
+							class="exp-toggle flex w-full cursor-pointer items-start justify-between text-left"
+							aria-label="Toggle details"
+						>
+							<div class="flex items-start gap-3">
+								<div class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded border border-border bg-white">
+									<img src={exp.logo.src} alt={exp.company} class="h-7 w-7 object-contain" />
+								</div>
+								<div class="flex flex-col">
+									<h3 class="text-sm font-medium tracking-tight text-title">{exp.company}</h3>
+									<p class="text-sm text-body">
+										{exp.role}
+										{exp.team && ` (${exp.team})`}
+									</p>
+								</div>
 							</div>
-							<div class="flex flex-col">
-								<h3 class="text-sm font-medium tracking-tight text-title">
-									{exp.company}
-								</h3>
-								<p class="text-sm text-body">
-									{exp.role}{exp.team && ` (${exp.team})`}
-								</p>
+							<div class="flex items-start gap-2">
+								<div class="flex flex-col items-end">
+									<p class="text-sm tracking-tight whitespace-nowrap text-title">
+										{exp.startDate} &ndash; {exp.endDate}
+									</p>
+									<p class="text-xs text-body">{exp.location}</p>
+								</div>
+								<svg
+									class="exp-chevron mt-0.5 h-4 w-4 shrink-0 text-body transition-transform duration-200"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									viewBox="0 0 24 24"
+								>
+									<path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7" />
+								</svg>
 							</div>
-						</div>
-						<div class="flex items-start gap-2">
-							<div class="flex flex-col items-end">
-								<p class="text-sm tracking-tight text-title whitespace-nowrap">
-									{exp.startDate} &ndash; {exp.endDate}
-								</p>
-								<p class="text-xs text-body">{exp.location}</p>
+						</button>
+						<div class="exp-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
+							<div class="overflow-hidden">
+								<ul class="space-y-1.5 pt-3 pl-[52px] text-sm text-body">
+									{exp.highlights.map((item) => (
+										<li class="list-disc">{item}</li>
+									))}
+								</ul>
 							</div>
-							<svg
-								class="exp-chevron mt-0.5 h-4 w-4 shrink-0 text-body transition-transform duration-200"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								viewBox="0 0 24 24"
-							>
-								<path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7" />
-							</svg>
-						</div>
-					</button>
-					<div class="exp-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
-						<div class="overflow-hidden">
-							<ul class="pt-3 space-y-1.5 pl-[52px] text-sm text-body">
-								{exp.highlights.map((item) => (
-									<li class="list-disc">{item}</li>
-								))}
-							</ul>
 						</div>
 					</div>
 				</div>
-			</div>
-		))}
+			))
+		}
 	</div>
 </section>
 
