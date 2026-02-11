@@ -23,7 +23,7 @@ const posts = (await getCollection('blog')).sort(
 							<p class="w-20 shrink-0 text-xs text-body">
 								{formatDateNumeric(post.data.publishedAt)}
 							</p>
-							<span class="text-sm font-medium tracking-tight text-title transition duration-150 ease-in-out md:group-hover:text-primary">
+							<span class="text-sm font-medium tracking-tight text-title transition duration-150 ease-in-out md:group-hover:text-accent">
 								{post.data.title}
 							</span>
 						</a>

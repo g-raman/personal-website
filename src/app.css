@@ -10,6 +10,7 @@
 	--color-body: #6b6b6b;
 	--color-title: #1a1a1a;
 	--color-primary: #0d0d0d;
+	--color-accent: #2563eb;
 	--color-hover: #f5f0e6;
 	--color-border: #e0dcd0;
 }
@@ -24,7 +25,7 @@
 	}
 
 	::selection {
-		background-color: var(--color-primary);
-		color: var(--color-hover);
+		background-color: var(--color-accent);
+		color: #ffffff;
 	}
 }
