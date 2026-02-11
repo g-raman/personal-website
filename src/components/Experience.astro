@@ -1,8 +1,13 @@
 ---
+import solaceLogo from '../assets/solace_logo.jpeg';
+import cliniconexLogo from '../assets/cliniconex_logo.jpeg';
+import uottawaLogo from '../assets/uottawa_logo.jpeg';
+
 interface Experience {
 	role: string;
 	team?: string;
 	company: string;
+	logo: ImageMetadata;
 	startDate: string;
 	endDate: string;
 	location: string;
@@ -14,6 +19,7 @@ const experiences: Experience[] = [
 		role: 'Software Developer Intern',
 		team: 'AI Team',
 		company: 'Solace',
+		logo: solaceLogo,
 		startDate: 'Sep 2025',
 		endDate: 'Dec 2025',
 		location: 'Ottawa, ON',
@@ -28,6 +34,7 @@ const experiences: Experience[] = [
 		role: 'Software Developer Intern',
 		team: 'Product Team',
 		company: 'Cliniconex',
+		logo: cliniconexLogo,
 		startDate: 'Jan 2024',
 		endDate: 'Apr 2024',
 		location: 'Ottawa, ON',
@@ -42,6 +49,7 @@ const experiences: Experience[] = [
 		role: 'Software Developer Intern',
 		team: 'Product Team',
 		company: 'University of Ottawa',
+		logo: uottawaLogo,
 		startDate: 'May 2023',
 		endDate: 'Aug 2023',
 		location: 'Ottawa, ON',
@@ -67,13 +75,18 @@ const experiences: Experience[] = [
 						class="exp-toggle flex w-full cursor-pointer items-start justify-between text-left"
 						aria-label="Toggle details"
 					>
-						<div class="flex flex-col">
-							<h3 class="text-sm font-medium tracking-tight text-title">
-								{exp.company}
-							</h3>
-							<p class="text-sm text-body">
-								{exp.role}{exp.team && ` (${exp.team})`}
-							</p>
+						<div class="flex items-start gap-3">
+							<div class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded border border-border bg-white">
+								<img src={exp.logo.src} alt={exp.company} class="h-7 w-7 object-contain" />
+							</div>
+							<div class="flex flex-col">
+								<h3 class="text-sm font-medium tracking-tight text-title">
+									{exp.company}
+								</h3>
+								<p class="text-sm text-body">
+									{exp.role}{exp.team && ` (${exp.team})`}
+								</p>
+							</div>
 						</div>
 						<div class="flex items-start gap-2">
 							<div class="flex flex-col items-end">
@@ -95,7 +108,7 @@ const experiences: Experience[] = [
 					</button>
 					<div class="exp-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
 						<div class="overflow-hidden">
-							<ul class="pt-3 space-y-1.5 pl-4 text-sm text-body">
+							<ul class="pt-3 space-y-1.5 pl-[52px] text-sm text-body">
 								{exp.highlights.map((item) => (
 									<li class="list-disc">{item}</li>
 								))}
