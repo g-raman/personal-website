@@ -1,0 +1,82 @@
+---
+import michaelImg from '../assets/michael_du_plessis.jpeg';
+import jakeImg from '../assets/jake_swart.jpeg';
+import ivanaImg from '../assets/ivana_erlich.jpeg';
+
+interface Testimonial {
+	name: string;
+	role: string;
+	company: string;
+	quote: string;
+	image: ImageMetadata;
+	profileUrl?: string;
+}
+
+const testimonials: Testimonial[] = [
+	{
+		name: 'Michael Du Plessis',
+		role: 'Senior Software Development Manager',
+		company: 'Solace',
+		image: michaelImg,
+		quote:
+			"I had the pleasure of working with Raman during their co-op term working on Solace Agent Mesh, an Agentic AI platform. He contributed effectively across both front-end and back-end development, demonstrating strong technical skills and a genuine commitment to delivering quality work. What stood out most was Raman's determination when facing challenging problems\u2014he consistently worked through obstacles with a positive attitude. Beyond their technical abilities, he was an excellent team player who communicated well and was genuinely easy to work with. Raman will be a valuable addition to any development team. I'm confident he'll continue to grow as a software developer and make meaningful contributions wherever he goes next."
+	},
+	{
+		name: 'Jake Swart',
+		role: 'Software Engineering Lead',
+		company: 'Cliniconex',
+		image: jakeImg,
+		quote:
+			'Raman quickly learned our tech stack and became a productive member of the team. He developed and tested marketable product features for our ACM Medical platform. Raman helped harden a prototype product before an important customer conference creating a better user experience. We are grateful for the work Raman did.'
+	},
+	{
+		name: 'Ivana Erlich',
+		role: 'Software Developer',
+		company: 'CapIntel',
+		image: ivanaImg,
+		quote:
+			'Great addition to our team, both as a coop student and as an independent part time developer. Raman learned our stack quickly, and brought great value to our team. He has a lot of technical knowledge and solid problem solving skills that make him a great full stack developer.'
+	}
+];
+---
+
+<section class="pt-8">
+	<h2 class="font-medium tracking-tight text-title">Testimonials</h2>
+	<div class="pt-1.5">
+		{
+			testimonials.map((t) => (
+				<div class="flex flex-col items-start pt-2">
+					<div class="-mx-3 w-full rounded-lg px-3 py-3 transition-all duration-300 ease-in-out md:hover:bg-hover">
+						<div class="flex items-center gap-3">
+							<img
+								src={t.image.src}
+								alt={t.name}
+								class="h-10 w-10 shrink-0 rounded-full border border-border object-cover"
+							/>
+							<div class="flex flex-col">
+								<div class="flex items-center gap-1.5">
+									{t.profileUrl ? (
+										<a
+											href={t.profileUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-sm font-medium tracking-tight text-title transition duration-150 ease-in-out hover:text-accent"
+										>
+											{t.name}
+										</a>
+									) : (
+										<h3 class="text-sm font-medium tracking-tight text-title">{t.name}</h3>
+									)}
+									<div class="h-1 w-1 rounded-full bg-body" />
+									<span class="text-sm text-body">{t.company}</span>
+								</div>
+								<p class="text-xs text-body">{t.role}</p>
+							</div>
+						</div>
+						<p class="mt-3 text-sm leading-relaxed text-body">{t.quote}</p>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</section>
