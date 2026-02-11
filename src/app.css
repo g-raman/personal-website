@@ -3,18 +3,28 @@
 
 @theme {
 	--font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+	--font-serif: 'Instrument Serif', 'Georgia', 'Times New Roman', serif;
 	--font-mono: 'GeistMono Variable', ui-monospace, monospace;
+
+	--color-bg: #fffcf0;
+	--color-body: #6b6b6b;
+	--color-title: #1a1a1a;
+	--color-primary: #0d0d0d;
+	--color-hover: #f5f0e6;
+	--color-border: #e0dcd0;
 }
 
 @layer base {
 	body {
 		font-family: var(--font-sans);
+		background-color: var(--color-bg);
+		color: var(--color-body);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
-}
 
-@layer utilities {
-	.bg-dot-grid {
-		background-image: radial-gradient(circle, #b1b1b1 1px, transparent 1px);
-		background-size: 20px 20px;
+	::selection {
+		background-color: var(--color-primary);
+		color: var(--color-hover);
 	}
 }

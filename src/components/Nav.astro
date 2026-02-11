@@ -1,15 +1,30 @@
 ---
 ---
 
-<nav class="flex w-full items-baseline justify-between pb-8 md:pb-12 lg:pb-16">
-	<a href="/" class="text-lg font-semibold hover:text-current/70 md:text-2xl">Raman Gupta</a>
-
-	<ul class="flex gap-4 font-light md:text-xl">
-		<li>
-			<a class="hover:underline" href="/about">About</a>
-		</li>
-		<li>
-			<a class="hover:underline" href="/blog">Blog</a>
-		</li>
-	</ul>
+<nav class="flex items-center justify-between pb-8 tracking-tight">
+	<div>
+		<a href="/" aria-label="Home">
+			<img
+				src="/favicon.svg"
+				alt="logo"
+				width="18"
+				height="18"
+				class="transition-all duration-300 ease-linear hover:rotate-180"
+			/>
+		</a>
+	</div>
+	<div class="flex items-center gap-4">
+		<a
+			href="/about"
+			class="text-sm text-body transition duration-150 ease-in-out hover:text-primary hover:underline underline-offset-4"
+		>
+			about
+		</a>
+		<a
+			href="/blog"
+			class="text-sm text-body transition duration-150 ease-in-out hover:text-primary hover:underline underline-offset-4"
+		>
+			blog
+		</a>
+	</div>
 </nav>

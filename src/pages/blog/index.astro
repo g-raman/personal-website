@@ -9,17 +9,27 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <Base title="Blog">
-	<section>
-		<h1 class="mb-4 text-4xl font-bold">Posts</h1>
-		<ul class="flex flex-col gap-4">
-			{posts.map((post) => (
-				<li class="flex items-baseline gap-2">
-					<p class="w-24 text-base text-stone-500">
-						{formatDateNumeric(post.data.publishedAt)}
-					</p>
-					<a href={`/blog/${post.id}`} class="text-lg underline">{post.data.title}</a>
-				</li>
-			))}
-		</ul>
+	<section class="pt-2">
+		<h1 class="font-serif text-[2rem] tracking-tight text-primary">Posts</h1>
+
+		<div class="pt-4">
+			<ul class="flex flex-col gap-1">
+				{posts.map((post) => (
+					<li>
+						<a
+							href={`/blog/${post.id}`}
+							class="group -mx-3 flex items-baseline gap-3 rounded-lg px-3 py-2 transition-all duration-300 ease-in-out md:hover:bg-hover"
+						>
+							<p class="w-20 shrink-0 text-xs text-body">
+								{formatDateNumeric(post.data.publishedAt)}
+							</p>
+							<span class="text-sm font-medium tracking-tight text-title transition duration-150 ease-in-out md:group-hover:text-primary">
+								{post.data.title}
+							</span>
+						</a>
+					</li>
+				))}
+			</ul>
+		</div>
 	</section>
 </Base>

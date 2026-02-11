@@ -26,7 +26,7 @@ const canonical = 'https://raman.codes/';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-bg">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,18 +35,20 @@ const canonical = 'https://raman.codes/';
 		<link rel="canonical" href={canonical} />
 		<link rel="icon" type="image/svg" href={faviconLight.src} media="(prefers-color-scheme: light)" />
 		<link rel="icon" type="image/svg" href={faviconDark.src} media="(prefers-color-scheme: dark)" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap"
+			rel="stylesheet"
+		/>
 		{ogType && <meta property="og:type" content={ogType} />}
 		{ogTitle && <meta property="og:title" content={ogTitle} />}
 	</head>
-	<body>
-		<div class="bg-dot-grid flex min-h-dvh flex-col bg-[#fffcf0] px-8 md:px-24 lg:px-48 xl:px-84">
-			<div class="flex flex-1 flex-col border-x border-stone-500 bg-[#fffcf0] bg-cover bg-center p-8">
-				<Nav />
-				<main>
-					<slot />
-				</main>
-				<Footer />
-			</div>
-		</div>
+	<body class="mx-auto my-8 max-w-[400px] px-4 md:my-16 md:max-w-[600px]">
+		<main class="relative font-sans">
+			<Nav />
+			<slot />
+			<Footer />
+		</main>
 	</body>
 </html>
