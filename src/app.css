@@ -6,13 +6,13 @@
 	--font-serif: 'Instrument Serif', 'Georgia', 'Times New Roman', serif;
 	--font-mono: 'GeistMono Variable', ui-monospace, monospace;
 
-	--color-bg: #fffcf0;
+	--color-bg: #f8faff;
 	--color-body: #6b6b6b;
 	--color-title: #1a1a1a;
 	--color-primary: #0d0d0d;
 	--color-accent: #2563eb;
-	--color-hover: #f5f0e6;
-	--color-border: #e0dcd0;
+	--color-hover: #eef2ff;
+	--color-border: #dde3f0;
 }
 
 @layer base {
