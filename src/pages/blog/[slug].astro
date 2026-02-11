@@ -1,0 +1,70 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { formatDateFriendly } from '../../utils/dates';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { post }
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Base title={post.data.title} ogType="article" ogTitle={post.data.title}>
+	<article class="mb-8">
+		<hgroup>
+			<h1 class="mb-2 text-4xl font-bold">{post.data.title}</h1>
+			<p class="text-stone-500">{formatDateFriendly(post.data.publishedAt)}</p>
+		</hgroup>
+
+		<hr class="my-4 border-stone-400/40" />
+
+		<div class="prose prose-sm md:prose-base">
+			<Content />
+		</div>
+	</article>
+
+	<script>
+		function initCopyButtons() {
+			const preTags = document.querySelectorAll('pre.shiki, pre.astro-code');
+
+			for (const preTag of preTags) {
+				if (!preTag.parentNode) continue;
+				if (preTag.parentElement?.classList.contains('code-block-wrapper')) continue;
+
+				const wrapper = document.createElement('div');
+				wrapper.className = 'code-block-wrapper relative';
+
+				const button = document.createElement('button');
+				button.className =
+					'copy-code-button absolute top-2 right-2 flex items-center rounded-xs border border-stone-600 p-1.5 text-stone-300 transition-all duration-200 hover:border-stone-600 hover:text-white';
+				button.title = 'Copy code';
+				button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="size-3"><path d="M464 0c26.5 0 48 21.5 48 48l0 304c0 26.5-21.5 48-48 48l-48 0 0-48 48 0 0-304L160 48l0-48L464 0zM176 80l0 48-48 0 0 304 304 0 0-48 48 0 0 48c0 26.5-21.5 48-48 48L128 480c-26.5 0-48-21.5-48-48L80 128c0-26.5 21.5-48 48-48l48 0z"/></svg>`;
+
+				button.addEventListener('click', () => {
+					const code = preTag.textContent ?? '';
+					navigator.clipboard.writeText(code);
+
+					button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="size-3 text-green-300"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>`;
+					button.title = 'Copied!';
+
+					setTimeout(() => {
+						button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="size-3"><path d="M464 0c26.5 0 48 21.5 48 48l0 304c0 26.5-21.5 48-48 48l-48 0 0-48 48 0 0-304L160 48l0-48L464 0zM176 80l0 48-48 0 0 304 304 0 0-48 48 0 0 48c0 26.5-21.5 48-48 48L128 480c-26.5 0-48-21.5-48-48L80 128c0-26.5 21.5-48 48-48l48 0z"/></svg>`;
+						button.title = 'Copy code';
+					}, 1000);
+				});
+
+				preTag.parentNode.replaceChild(wrapper, preTag);
+				wrapper.appendChild(button);
+				wrapper.appendChild(preTag);
+			}
+		}
+
+		initCopyButtons();
+	</script>
+</Base>

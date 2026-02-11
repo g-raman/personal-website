@@ -1,0 +1,52 @@
+---
+import '@fontsource-variable/geist';
+import '@fontsource-variable/geist-mono';
+import '../app.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import faviconLight from '../assets/favicon-light.svg';
+import faviconDark from '../assets/favicon-dark.svg';
+
+interface Props {
+	title?: string;
+	description?: string;
+	ogType?: string;
+	ogTitle?: string;
+}
+
+const {
+	title = 'Personal Website',
+	description = "Raman Gupta's personal website",
+	ogType,
+	ogTitle
+} = Astro.props;
+
+const fullTitle = `${title} | Raman Gupta`;
+const canonical = 'https://raman.codes/';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{fullTitle}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<link rel="icon" type="image/svg" href={faviconLight.src} media="(prefers-color-scheme: light)" />
+		<link rel="icon" type="image/svg" href={faviconDark.src} media="(prefers-color-scheme: dark)" />
+		{ogType && <meta property="og:type" content={ogType} />}
+		{ogTitle && <meta property="og:title" content={ogTitle} />}
+	</head>
+	<body>
+		<div class="bg-dot-grid flex min-h-dvh flex-col bg-[#fffcf0] px-8 md:px-24 lg:px-48 xl:px-84">
+			<div class="flex flex-1 flex-col border-x border-stone-500 bg-[#fffcf0] bg-cover bg-center p-8">
+				<Nav />
+				<main>
+					<slot />
+				</main>
+				<Footer />
+			</div>
+		</div>
+	</body>
+</html>
