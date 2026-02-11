@@ -32,6 +32,9 @@ const { Content } = await render(post);
 	</article>
 
 	<script>
+		const ICON_COPY = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+		const ICON_CHECK = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+
 		function initCopyButtons() {
 			const preTags = document.querySelectorAll('pre.shiki, pre.astro-code');
 
@@ -40,25 +43,27 @@ const { Content } = await render(post);
 				if (preTag.parentElement?.classList.contains('code-block-wrapper')) continue;
 
 				const wrapper = document.createElement('div');
-				wrapper.className = 'code-block-wrapper relative';
+				wrapper.className = 'code-block-wrapper group/code relative';
 
 				const button = document.createElement('button');
 				button.className =
-					'copy-code-button absolute top-2 right-2 flex items-center rounded-md border border-stone-600 p-1.5 text-stone-300 transition-all duration-200 hover:border-stone-500 hover:text-white';
+					'copy-code-button absolute top-2.5 right-2.5 cursor-pointer rounded-md p-1.5 text-stone-400 opacity-0 transition-all duration-150 hover:text-white group-hover/code:opacity-100';
 				button.title = 'Copy code';
-				button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="size-3"><path d="M464 0c26.5 0 48 21.5 48 48l0 304c0 26.5-21.5 48-48 48l-48 0 0-48 48 0 0-304L160 48l0-48L464 0zM176 80l0 48-48 0 0 304 304 0 0-48 48 0 0 48c0 26.5-21.5 48-48 48L128 480c-26.5 0-48-21.5-48-48L80 128c0-26.5 21.5-48 48-48l48 0z"/></svg>`;
+				button.innerHTML = ICON_COPY;
 
 				button.addEventListener('click', () => {
 					const code = preTag.textContent ?? '';
 					navigator.clipboard.writeText(code);
 
-					button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="size-3 text-green-300"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>`;
+					button.innerHTML = ICON_CHECK;
+					button.style.color = '#4ade80';
 					button.title = 'Copied!';
 
 					setTimeout(() => {
-						button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="size-3"><path d="M464 0c26.5 0 48 21.5 48 48l0 304c0 26.5-21.5 48-48 48l-48 0 0-48 48 0 0-304L160 48l0-48L464 0zM176 80l0 48-48 0 0 304 304 0 0-48 48 0 0 48c0 26.5-21.5 48-48 48L128 480c-26.5 0-48-21.5-48-48L80 128c0-26.5 21.5-48 48-48l48 0z"/></svg>`;
+						button.innerHTML = ICON_COPY;
+						button.style.color = '';
 						button.title = 'Copy code';
-					}, 1000);
+					}, 1500);
 				});
 
 				preTag.parentNode.replaceChild(wrapper, preTag);
