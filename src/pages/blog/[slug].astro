@@ -16,7 +16,7 @@ const { Content } = await render(post);
 ---
 
 <Base title={post.data.title} ogType="article" ogTitle={post.data.title}>
-	<article class="mb-8 pt-2">
+	<article class="mb-8">
 		<hgroup>
 			<h1 class="font-serif text-4xl tracking-tight text-primary">{post.data.title}</h1>
 			<p class="pt-1 text-xs text-body">{formatDateFriendly(post.data.publishedAt)}</p>
