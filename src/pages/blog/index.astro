@@ -21,9 +21,9 @@ const posts = (await getCollection('blog')).sort(
 								href={`/blog/${post.id}`}
 								class="group -mx-3 flex items-baseline gap-3 rounded-lg px-3 py-2 transition-all duration-300 ease-in-out md:hover:bg-hover"
 							>
-								<p class="w-20 shrink-0 text-xs text-body">
-									{formatDateNumeric(post.data.publishedAt)}
-								</p>
+							<p class="w-20 shrink-0 text-xs text-body" transition:name={`blog-date-${post.id}`}>
+								{formatDateNumeric(post.data.publishedAt)}
+							</p>
 							<span
 								class="text-sm font-medium tracking-tight text-title transition duration-150 ease-in-out md:group-hover:text-accent"
 								transition:name={`blog-title-${post.id}`}

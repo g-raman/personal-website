@@ -19,13 +19,14 @@ const { Content } = await render(post);
 	<article class="mb-8">
 		<hgroup>
 			<h1 class="font-serif text-4xl tracking-tight text-primary" transition:name={`blog-title-${post.id}`}>{post.data.title}</h1>
-			<p class="pt-1 text-xs text-body">{formatDateFriendly(post.data.publishedAt)}</p>
+			<p class="pt-1 text-xs text-body" transition:name={`blog-date-${post.id}`}>{formatDateFriendly(post.data.publishedAt)}</p>
 		</hgroup>
 
-		<hr class="my-4 border-border" />
+		<hr class="my-4 border-border" transition:animate="fade" />
 
 		<div
 			class="prose prose-sm text-body md:prose-base prose-headings:tracking-tight prose-headings:text-title prose-a:text-accent prose-a:underline-offset-2 prose-strong:text-title"
+			transition:animate="slide"
 		>
 			<Content />
 		</div>
