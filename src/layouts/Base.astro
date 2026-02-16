@@ -45,11 +45,11 @@ const canonical = 'https://raman.codes/';
 		{ogType && <meta property="og:type" content={ogType} />}
 		{ogTitle && <meta property="og:title" content={ogTitle} />}
 	</head>
-	<body class="mx-auto my-8 max-w-[400px] px-8 md:my-16 md:max-w-[600px]">
-		<main class="relative font-sans">
+	<body class="mx-auto flex min-h-screen flex-col px-8 py-8 md:max-w-[600px] md:py-16">
+		<main class="relative flex-1 font-sans">
 			<Nav />
 			<slot />
-			<Footer />
 		</main>
+		<Footer />
 	</body>
 </html>
