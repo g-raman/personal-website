@@ -1,0 +1,151 @@
+---
+import solaceLogo from '../assets/solace_logo.jpeg';
+import cliniconexLogo from '../assets/cliniconex_logo.jpeg';
+import uottawaLogo from '../assets/uottawa_logo.jpeg';
+
+interface Experience {
+	role: string;
+	team?: string;
+	company: string;
+	logo: ImageMetadata;
+	startDate: string;
+	endDate: string;
+	location: string;
+	highlights: string[];
+}
+
+const experiences: Experience[] = [
+	{
+		role: 'Software Developer Intern',
+		team: 'AI Team',
+		company: 'Solace',
+		logo: solaceLogo,
+		startDate: 'Sep 2025',
+		endDate: 'Dec 2025',
+		location: 'Ottawa, ON',
+		highlights: [
+			'Enabled secure admin access to Jira via Atlassian MCP with fine-grained role-based access control (RBAC) by building a custom authentication layer using JWT in Python',
+			'Boosted Sonar security hotspot coverage from 22% to 90% and mitigated supply chain attacks in Docker builds through dependency pinning/verification, enforcing non-root runtime, and eliminating 20+ CVEs',
+			'Achieved 92% unit-test coverage, reduced UI regressions, and improved the reliability of LLM-driven code generation by building an automated component test pipeline via GitHub Actions using Storybook & Vitest',
+			'Drove a 45% reduction in request volume by replacing 30+ useEffects with cache-aware React Query hooks'
+		]
+	},
+	{
+		role: 'Software Developer Intern',
+		team: 'Product Team',
+		company: 'Cliniconex',
+		logo: cliniconexLogo,
+		startDate: 'Jan 2024',
+		endDate: 'Apr 2024',
+		location: 'Ottawa, ON',
+		highlights: [
+			'Reduced CPU usage by 19% for computation-heavy endpoints by implementing a KV-store-based distributed rate limiter with GCP Cloud Memorystore (Memcached), Java, and the Guava library',
+			'Delivered 10k+ reminders per month by adding an email pipeline for automated notifications via Twilio SendGrid',
+			'Reduced appointment lookup from minutes to seconds for admins, eliminated direct database access & manual workflows by building an appointment management dashboard, serving 1200+ daily bookings',
+			'Prevented automated and spam appointment bookings by building a customizable spam shield with per-user and time-window limits, ensuring safe system behaviour at launch'
+		]
+	},
+	{
+		role: 'Software Developer Intern',
+		team: 'Product Team',
+		company: 'University of Ottawa',
+		logo: uottawaLogo,
+		startDate: 'May 2023',
+		endDate: 'Aug 2023',
+		location: 'Ottawa, ON',
+		highlights: [
+			'Migrated 1,000+ legacy JavaScript files to TypeScript in minutes instead of weeks by building a CLI that automatically infers function signatures by extending the TypeScript Compiler API from an open-source project',
+			'Achieved a latency reduction from 1,100ms to 300ms by building aggregated SQL views that consolidated multiple queries into a single request across 20+ Java (Apache Sling) endpoints',
+			'Reduced flaky test failures by 40% and achieved 93% coverage by stabilizing Cypress and Jasmine test suites',
+			'Cut request latency by 11% and eliminated deeply nested merge queries by building an ETL pipeline that unified current and legacy data models, consolidating 30+ tables/columns',
+			'Enabled 3 interns to ship on day 1 and cut onboarding time from 15h to 30min by developing a TypeScript CLI'
+		]
+	}
+];
+---
+
+<section class="pt-8">
+	<h2 class="font-medium tracking-tight text-title">Experience</h2>
+	<div class="pt-1.5">
+		{
+			experiences.map((exp) => (
+				<div class="flex flex-col items-start pt-2">
+					<div class="group relative -mx-3 w-full rounded-lg px-3 py-3 transition-all duration-300 ease-in-out md:hover:bg-hover">
+						<button
+							type="button"
+							class="exp-toggle flex w-full cursor-pointer items-start justify-between text-left"
+							aria-label="Toggle details"
+						>
+							<div class="flex items-start gap-3">
+								<div class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded border border-border bg-white">
+									<img src={exp.logo.src} alt={exp.company} class="h-7 w-7 object-contain" />
+								</div>
+								<div class="flex flex-col">
+									<h3 class="text-sm font-medium tracking-tight text-title">{exp.company}</h3>
+									<p class="text-sm text-body">
+										{exp.role}
+										{exp.team && ` (${exp.team})`}
+									</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-2">
+								<div class="flex flex-col items-end">
+									<p class="text-sm tracking-tight whitespace-nowrap text-title">
+										{exp.startDate} &ndash; {exp.endDate}
+									</p>
+									<p class="text-xs text-body">{exp.location}</p>
+								</div>
+								<svg
+									class="exp-chevron mt-0.5 h-4 w-4 shrink-0 text-body transition-transform duration-200"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									viewBox="0 0 24 24"
+								>
+									<path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7" />
+								</svg>
+							</div>
+						</button>
+						<div class="exp-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
+							<div class="overflow-hidden">
+								<ul class="space-y-1.5 pt-3 pl-[52px] text-sm text-body">
+									{exp.highlights.map((item) => (
+										<li class="list-disc">{item}</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</section>
+
+<script>
+	function initExperienceToggles() {
+		const toggles = document.querySelectorAll('.exp-toggle');
+		for (const toggle of toggles) {
+			toggle.addEventListener('click', () => {
+				const parent = toggle.closest('.group');
+				if (!parent) return;
+				const content = parent.querySelector('.exp-content') as HTMLElement;
+				const chevron = parent.querySelector('.exp-chevron') as HTMLElement;
+				if (!content || !chevron) return;
+
+				const isOpen = content.classList.contains('grid-rows-[1fr]');
+				if (isOpen) {
+					content.classList.remove('grid-rows-[1fr]');
+					content.classList.add('grid-rows-[0fr]');
+					chevron.classList.remove('rotate-180');
+				} else {
+					content.classList.remove('grid-rows-[0fr]');
+					content.classList.add('grid-rows-[1fr]');
+					chevron.classList.add('rotate-180');
+				}
+			});
+		}
+	}
+
+	document.addEventListener('astro:page-load', initExperienceToggles);
+</script>

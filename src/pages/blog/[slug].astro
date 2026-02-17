@@ -1,0 +1,78 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { formatDateFriendly } from '../../utils/dates';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { post }
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Base title={post.data.title} ogType="article" ogTitle={post.data.title}>
+	<article class="mb-8">
+		<hgroup>
+			<h1 class="font-serif text-4xl tracking-tight text-primary" transition:name={`blog-title-${post.id}`}>{post.data.title}</h1>
+			<p class="pt-1 text-xs text-body" transition:name={`blog-date-${post.id}`}>{formatDateFriendly(post.data.publishedAt)}</p>
+		</hgroup>
+
+		<hr class="my-4 border-border" transition:animate="fade" />
+
+		<div
+			class="prose prose-sm text-body md:prose-base prose-headings:tracking-tight prose-headings:text-title prose-a:text-accent prose-a:underline-offset-2 prose-strong:text-title"
+			transition:animate="slide"
+		>
+			<Content />
+		</div>
+	</article>
+
+	<script>
+		const ICON_COPY = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+		const ICON_CHECK = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+
+		function initCopyButtons() {
+			const preTags = document.querySelectorAll('pre.shiki, pre.astro-code');
+
+			for (const preTag of preTags) {
+				if (!preTag.parentNode) continue;
+				if (preTag.parentElement?.classList.contains('code-block-wrapper')) continue;
+
+				const wrapper = document.createElement('div');
+				wrapper.className = 'code-block-wrapper group/code relative';
+
+				const button = document.createElement('button');
+				button.className =
+					'copy-code-button absolute top-2.5 right-2.5 cursor-pointer rounded-md p-1.5 text-stone-400 opacity-0 transition-all duration-150 hover:text-white group-hover/code:opacity-100';
+				button.title = 'Copy code';
+				button.innerHTML = ICON_COPY;
+
+				button.addEventListener('click', () => {
+					const code = preTag.textContent ?? '';
+					navigator.clipboard.writeText(code);
+
+					button.innerHTML = ICON_CHECK;
+					button.style.color = '#4ade80';
+					button.title = 'Copied!';
+
+					setTimeout(() => {
+						button.innerHTML = ICON_COPY;
+						button.style.color = '';
+						button.title = 'Copy code';
+					}, 1500);
+				});
+
+				preTag.parentNode.replaceChild(wrapper, preTag);
+				wrapper.appendChild(button);
+				wrapper.appendChild(preTag);
+			}
+		}
+
+		document.addEventListener('astro:page-load', initCopyButtons);
+	</script>
+</Base>

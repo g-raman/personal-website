@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { formatDateNumeric } from '../../utils/dates';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+);
+---
+
+<Base title="Blog">
+	<section>
+		<h1 class="font-serif text-4xl tracking-tight text-primary">Posts</h1>
+
+		<div class="pt-4">
+			<ul class="flex flex-col gap-1">
+				{
+					posts.map((post) => (
+						<li>
+							<a
+								href={`/blog/${post.id}`}
+								class="group -mx-3 flex items-baseline gap-3 rounded-lg px-3 py-2 transition-all duration-300 ease-in-out md:hover:bg-hover"
+							>
+							<p class="w-20 shrink-0 text-xs text-body" transition:name={`blog-date-${post.id}`}>
+								{formatDateNumeric(post.data.publishedAt)}
+							</p>
+							<span
+								class="text-sm font-medium tracking-tight text-title transition duration-150 ease-in-out md:group-hover:text-accent"
+								transition:name={`blog-title-${post.id}`}
+							>
+								{post.data.title}
+							</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+</Base>

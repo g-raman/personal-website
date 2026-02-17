@@ -1,0 +1,57 @@
+---
+import '@fontsource-variable/geist';
+import '@fontsource-variable/geist-mono';
+import '@fontsource/instrument-serif';
+import '../app.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
+import faviconLight from '../assets/favicon-light.svg';
+import faviconDark from '../assets/favicon-dark.svg';
+
+interface Props {
+	title?: string;
+	description?: string;
+	ogType?: string;
+	ogTitle?: string;
+}
+
+const {
+	title = 'Personal Website',
+	description = "Raman Gupta's personal website",
+	ogType,
+	ogTitle
+} = Astro.props;
+
+const fullTitle = `${title} | Raman Gupta`;
+const canonical = 'https://raman.codes/';
+---
+
+<!doctype html>
+<html lang="en" class="bg-bg">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{fullTitle}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<link
+			rel="icon"
+			type="image/svg"
+			href={faviconLight.src}
+			media="(prefers-color-scheme: light)"
+		/>
+		<link rel="icon" type="image/svg" href={faviconDark.src} media="(prefers-color-scheme: dark)" />
+
+		{ogType && <meta property="og:type" content={ogType} />}
+		{ogTitle && <meta property="og:title" content={ogTitle} />}
+		<ClientRouter />
+	</head>
+	<body class="mx-auto flex min-h-screen flex-col px-8 py-8 md:max-w-[600px] md:py-16">
+		<main class="relative flex-1 font-sans">
+			<Nav />
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -1,0 +1,27 @@
+---
+import faviconLight from '../assets/favicon-light.svg';
+---
+
+<nav class="flex items-center justify-between pb-8 tracking-tight" transition:name="nav">
+	<div>
+		<a href="/" aria-label="Home">
+			<img
+				src={faviconLight.src}
+				alt="logo"
+				width="18"
+				height="18"
+				class="transition-all duration-300 ease-linear hover:rotate-180"
+				transition:name="nav-logo"
+			/>
+		</a>
+	</div>
+	<div class="flex items-center gap-4">
+		<a
+			href="/blog"
+			class="text-sm text-body underline-offset-4 transition duration-150 ease-in-out hover:text-accent hover:underline"
+			transition:name="nav-blog-link"
+		>
+			blog
+		</a>
+	</div>
+</nav>
