@@ -18,8 +18,15 @@ const { Content } = await render(post);
 <Base title={post.data.title} ogType="article" ogTitle={post.data.title}>
 	<article class="mb-8">
 		<hgroup>
-			<h1 class="font-serif text-4xl tracking-tight text-primary" transition:name={`blog-title-${post.id}`}>{post.data.title}</h1>
-			<p class="pt-1 text-xs text-body" transition:name={`blog-date-${post.id}`}>{formatDateFriendly(post.data.publishedAt)}</p>
+			<h1
+				class="font-serif text-4xl tracking-tight text-primary"
+				transition:name={`blog-title-${post.id}`}
+			>
+				{post.data.title}
+			</h1>
+			<p class="pt-1 text-xs text-body" transition:name={`blog-date-${post.id}`}>
+				{formatDateFriendly(post.data.publishedAt)}
+			</p>
 		</hgroup>
 
 		<hr class="my-4 border-border" transition:animate="fade" />
