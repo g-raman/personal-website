@@ -1,7 +1,7 @@
 {
 	"name": "personal-website",
-	"private": true,
 	"version": "0.0.1",
+	"private": true,
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev --port 3000",
@@ -9,7 +9,7 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"lint": "eslint . && prettier --check .",
-		"format": "prettier --write .",
+		"format": "oxfmt",
 		"deploy": "bun run build && wrangler deploy"
 	},
 	"dependencies": {
