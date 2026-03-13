@@ -8,8 +8,9 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"lint": "eslint . && prettier --check .",
+		"lint": "eslint .",
 		"format": "oxfmt",
+		"format:ci": "oxfmt --check",
 		"deploy": "bun run build && wrangler deploy"
 	},
 	"dependencies": {
