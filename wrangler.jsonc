@@ -13,10 +13,6 @@
 	"routes": [
 		{
 			"custom_domain": true,
-			"pattern": "raman.codes"
-		},
-		{
-			"custom_domain": true,
 			"pattern": "ramangupta.dev"
 		}
 	]
